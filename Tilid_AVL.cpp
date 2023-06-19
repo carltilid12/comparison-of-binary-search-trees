@@ -49,6 +49,10 @@ public:
         cout << endl;
     }
 
+    bool search(int value) {
+        return searchNode(root, value);
+    }
+
     // Public function to construct an AVL tree from an array
     void constructFromArray(int arr[], int size) {
         for (int i = 0; i < size; i++) {
@@ -153,6 +157,18 @@ private:
         return balance(node);
     }
 
+    bool searchNode(Node* root, int value) {
+        if (root == nullptr) {
+            return false;
+        } else if (value == root->data) {
+            return true;
+        } else if (value < root->data) {
+            return searchNode(root->left, value);
+        } else {
+            return searchNode(root->right, value);
+        }
+    }
+
     // Helper function to find the node with the minimum value in a subtree
     Node* findMinNode(Node* node) {
         while (node->left != nullptr)
@@ -216,11 +232,12 @@ int main() {
     }
     random_shuffle(&arr[0], &arr[size]);
 
-    time_req = clock();
+    
 
     AVLTree avl;
     avl.constructFromArray(arr, size);
-
+    time_req = clock();
+    cout << avl.search(size/2) << endl;
     time_req = clock() - time_req;
     cout << "The time it took = " << ((float)time_req/CLOCKS_PER_SEC)*1000 << endl;
     return 0;
