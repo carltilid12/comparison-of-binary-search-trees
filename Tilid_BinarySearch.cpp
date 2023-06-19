@@ -1,12 +1,11 @@
-//Carl Christian G. Tilid
-//Binary Search Tree
+// Carl Christian G. Tilid
+// Binary Search Tree
 #include <iostream>
 #include <ctime>
 #include <cmath>
 #include <algorithm>
 #include <time.h>
 #include <bits/stdc++.h>
-#include <vector>
 using namespace std;
 
 // Node structure
@@ -127,8 +126,8 @@ int main() {
             first = insert;
         }
     }
-    cout << bst.search(20) << endl;
-    bst.remove(first);
+    // cout << bst.search(20) << endl;
+    // bst.remove(first);
 
     time_req = clock() - time_req;
     cout << "The time it took = " << ((float)time_req/CLOCKS_PER_SEC)*1000 << endl;
